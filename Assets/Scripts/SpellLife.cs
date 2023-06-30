@@ -6,6 +6,7 @@ public class SpellLife : MonoBehaviour
 {
     public float spellLife = 10f;
     public GameObject explosion;
+    public GameObject currExpl;
 
 
     void Awake()
@@ -19,8 +20,15 @@ public class SpellLife : MonoBehaviour
             Destroy(other.gameObject);
         }
         
-        Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+        currExpl = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+        StartCoroutine(EndParticle());
         Destroy(gameObject);
+    }
+
+    private IEnumerator EndParticle()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(currExpl);
     }
 
 }
