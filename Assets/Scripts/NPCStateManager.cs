@@ -9,5 +9,4 @@ public class NPCStateManager : MonoBehaviour
    NPCSeek seekState = new NPCSeek();
    NPCFollow followState = new NPCFollow(); 
 
-   void Start();
 }
